@@ -1,7 +1,6 @@
-# Task Managment API 
-Using I have created this API.It can read the data fron JSON file and display or add new Tasks throught the following endpoints:
-
-Get all Tasks
+# Task Management API 
+Using I have created this API. It can read the data from JSON file and display or add new Tasks through the following endpoints:
+ <ul><li>Get all Tasks
 http://127.0.0.1:2000/tasks
 {
     "tasks": [
@@ -26,6 +25,13 @@ http://127.0.0.1:2000/tasks
             "complete": false
         }
     ]
-}
+}</li>
+ <li>
 Post New Tasks
-http://127.0.0.1:2000/tasks
+http://127.0.0.1:2000/tasks</li>
+ <li>Put Edit Task to mark as completed 
+http://127.0.0.1:2000/tasks/:id</li>
+
+
+
+</ul>
