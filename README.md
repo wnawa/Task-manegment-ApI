@@ -2,7 +2,7 @@
 Using I have created this API. It can read the data from JSON file and display or add new Tasks through the following endpoints:
  <ul><li>Get all Tasks
 http://127.0.0.1:2000/tasks
-{
+  <pre><code>{
     "tasks": [
         {
             "id": 1,
@@ -25,7 +25,8 @@ http://127.0.0.1:2000/tasks
             "complete": false
         }
     ]
-}</li>
+}</code>code></pre>
+</li>
  <li>
 Post New Tasks
 http://127.0.0.1:2000/tasks</li>
