@@ -25,7 +25,7 @@ http://127.0.0.1:2000/tasks
             "complete": false
         }
     ]
-}</code>code></pre>
+}</code></pre>
 </li>
  <li>
 Post New Tasks
