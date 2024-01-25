@@ -1,5 +1,6 @@
 const http = require('http');
 const url = require('url');
+
 // Declare variables
 const port = 2000;
 const hostname = "127.0.0.1";
@@ -33,7 +34,6 @@ const addPostTask = async (req, res) => {
         await new Promise((resolve, reject) => {
             req.on('end', () => {
                 const task = JSON.parse(body);
-                // tasks.push(task);
                 obj.tasks.push(task);
                 console.log(obj.tasks);
                 //Write data to the json file
@@ -54,7 +54,22 @@ const addPostTask = async (req, res) => {
     }
 
 }
+//PUT /tasks/:id/complete: Mark a task as completed.
+const handleCompleteTask = (req, res, taskId) => {
+    const task = obj.tasks.find((t) => t.id === taskId);
 
+    if (task) {
+        //update task
+        task.completed = true;
+        //send response indicate success
+        res.writeHead(200, { 'content-Type': 'application/json' });
+        res.end(JSON.stringify(task));
+    } else {
+        //when task not found display msg
+        res.writeHead(404, { 'content-Type': 'text/plain' });
+        res.end('Task Not Found');
+    }
+}
 //create server
 const server = http.createServer(async (req, res) => {
     const parseUrl = url.parse(req.url, true);
@@ -87,6 +102,6 @@ const server = http.createServer(async (req, res) => {
 
 server.listen(port, hostname, () => {
     console.log(`Server running at http://${hostname}:${port}/`);
-   });
-   
+});
+
 
