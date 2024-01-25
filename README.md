@@ -31,7 +31,7 @@ Post New Tasks
 http://127.0.0.1:2000/tasks</li>
  <li>Put Edit Task to mark as completed 
 http://127.0.0.1:2000/tasks/:id</li>
-
-
-
 </ul>
+
+## Run the code using
+node index.js
