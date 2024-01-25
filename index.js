@@ -1,6 +1,8 @@
 const http = require('http');
 const url = require('url');
 // Declare variables
+const port = 2000;
+const hostname = "127.0.0.1";
 var fs = require('fs'),
     obj
 const tasks = [];
@@ -20,7 +22,7 @@ const handleGetTasks = (res) => {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(obj["tasks"]));
 }
-const port = 2000;
+
 //POST /tasks: Add a new task.
 // N.B:Watch out for th e json formate you add douple quetes is a must in json
 //  { "id": 3, "name": "wahsing", "completed": false }
@@ -82,8 +84,9 @@ const server = http.createServer(async (req, res) => {
 
 
 //start the server
-server.listen(port, () => {
-    // The server object listens on port 3000
-    console.log(`server start at port ${port}`);
-}
-);
+
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+   });
+   
+
